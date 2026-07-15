@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "com.crolclient.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "MixinGameRenderer",
+    "MixinLightmapTextureManager",
+    "MixinInGameHud",
+    "MixinClientPlayerEntity",
+    "MixinChatHud",
+    "AccessorHandledScreen"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
