@@ -1,8 +1,8 @@
 package com.crolclient.client.mixin;
 
-import com.crolclient.client.module.ModuleManager;
 import com.crolclient.client.module.impl.visual.FreeLookModule;
 import net.minecraft.client.render.GameRenderer;
+import net.minecraft.client.render.RenderTickCounter;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -18,8 +18,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(GameRenderer.class)
 public abstract class MixinGameRenderer {
 
-    @Inject(method = "render", at = @At("HEAD"))
-    private void crolclient$onRenderStart(CallbackInfo ci) {
+    @Inject(method = "render(Lnet/minecraft/client/render/RenderTickCounter;)V", at = @At("HEAD"))
+    private void crolclient$onRenderStart(RenderTickCounter tickCounter, CallbackInfo ci) {
         // Флаг FreeLook читается модулями камеры напрямую через
         // FreeLookModule.isActive() в соответствующих точках рендера.
         boolean freeLook = FreeLookModule.isActive();

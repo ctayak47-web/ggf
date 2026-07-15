@@ -43,7 +43,7 @@ public class AutoReconnectModule extends Module {
             mc.execute(() -> {
                 if (mc.currentScreen == null) return;
                 ServerAddress address = ServerAddress.parse(lastServer.address);
-                ConnectScreen.connect(new MultiplayerScreen(net.minecraft.client.gui.screen.Screen.EMPTY), mc, address, lastServer, false, null);
+                ConnectScreen.connect(new MultiplayerScreen(null), mc, address, lastServer, false, null);
             });
         }, "CrolClient-AutoReconnect").start();
     }

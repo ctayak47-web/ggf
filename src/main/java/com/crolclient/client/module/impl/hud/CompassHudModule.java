@@ -17,7 +17,7 @@ public class CompassHudModule extends Module {
         if (mc.player == null) return;
         int centerX = mc.getWindow().getScaledWidth() / 2;
         int y = 4;
-        float yaw = mc.player.getYaw(tickDelta) % 360;
+        float yaw = mc.player.getYaw() % 360;
         if (yaw < 0) yaw += 360;
 
         String[] directions = {"Ю", "ЮЗ", "З", "СЗ", "С", "СВ", "В", "ЮВ"};

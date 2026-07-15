@@ -17,6 +17,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ChatHud.class)
 public abstract class MixinChatHud {
 
+    // В 1.21.4 публичный метод addMessage(Text) остался как overload;
+    // он вызывает внутренний addMessage с доп. параметрами.
     @Inject(method = "addMessage(Lnet/minecraft/text/Text;)V", at = @At("HEAD"))
     private void crolclient$onAddMessage(Text message, CallbackInfo ci) {
         var module = ModuleManager.getInstance().getByName("ChatFilter");
